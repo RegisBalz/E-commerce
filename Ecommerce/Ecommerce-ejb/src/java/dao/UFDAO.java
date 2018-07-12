@@ -16,7 +16,7 @@ public class UFDAO {
     
     public UF findById(int id) throws Exception {
         try {
-            String SQL = "SELECT * FROM UF WHERE ID=?";
+            String SQL = "SELECT * FROM UF WHERE UF_ID=?";
             
             UF uf = new UF();
             
