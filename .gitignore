@@ -31,3 +31,5 @@ hs_err_pid*
 /Ecommerce-shared/build/
 /Ecommerce-shared/dist/
 /Ecommerce-web/build/
+/Bestcard/nbproject/private/
+/Bestcard/Bestcard-ejb/nbproject/private/

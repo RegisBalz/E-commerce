@@ -4,14 +4,9 @@
         <title>Cadastre-se</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
         <script src="resources/js/cad_usuario.js" type="text/javascript"></script>
     </head>
     <body>
-        <br>
-        <span id="result"></span>
-        <br>
-        
         <form method="POST" action="/ecommerce-web/cadastro">
             <div>
                 <label for="nome_completo">Nome completo</label>
@@ -19,7 +14,7 @@
             </div>
             <div>
                 <label for="email">Email</label>
-                <input type="text" id="email">
+                <input type="email" id="email">
             </div>
             <div>
                 <label for="fone">Fone</label>
@@ -31,7 +26,7 @@
             </div>
             <div>
                 <label for="senha">Senha</label>
-                <input type="text" id="senha">
+                <input type="password" id="senha">
             </div>
             <div>
                 <label for="nome_estado">Estado</label>
@@ -57,7 +52,8 @@
                 <label for="cpf">CPF</label>
                 <input type="text" id="cpf">
             </div>
-            <input type="submit" value="Registrar-se" onclick="cadastraUsuario(this.form);">
+            <input type="button" value="Registrar-se" onclick="cadastraUsuario(this.form);">
         </form>
+        <p id="result"></p>
     </body>
 </html>
