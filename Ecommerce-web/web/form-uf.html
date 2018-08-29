@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cadastro de UF</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form method="POST" action="/ecommerce-web/cadastro-uf">
+            <div>
+                <label for="uf_id">UF ID</label>
+                <input type="text" name="uf_id" id="uf_id">
+            </div>
+            <div>
+                <label for="uf">UF</label>
+                <input type="text" name="uf" id="uf">
+            </div>
+            <div>
+                <label for="nome_estado">Nome do Estado</label>
+                <input type="text" name="nome_estado" id="nome_estado">
+            </div>
+            <input type="button" value="Salvar">
+        </form>
+        <span id="result"></span>
+        <script src="resources/js/cad-uf.js" type="text/javascript"></script>
+    </body>
+</html>

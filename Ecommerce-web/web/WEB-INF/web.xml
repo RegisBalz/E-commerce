@@ -5,10 +5,6 @@
         <servlet-class>web.CadastroUsuariosServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>UFServlet</servlet-name>
-        <servlet-class>web.UFServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>CorServlet</servlet-name>
         <servlet-class>web.CorServlet</servlet-class>
     </servlet>
@@ -16,17 +12,21 @@
         <servlet-name>CadastroCorServlet</servlet-name>
         <servlet-class>web.CadastroCorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UFServlet</servlet-name>
+        <servlet-class>web.UFServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroUsuariosServlet</servlet-name>
         <url-pattern>/cadastro</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UFServlet</servlet-name>
-        <url-pattern>/ufservlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>CadastroCorServlet</servlet-name>
         <url-pattern>/cor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UFServlet</servlet-name>
+        <url-pattern>/cadastro-uf</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
