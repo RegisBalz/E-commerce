@@ -1,19 +1,33 @@
 package beans;
 
+import dao.CorDAO;
 import dao.UFDAO;
 import dto.CorDTO;
 import exceptions.AppException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import model.Cor;
 import model.UF;
 
 @Stateless
 public class SessaoBean implements SessaoBeanRemote, SessaoBeanLocal {
+    
+    @Override
+    public List<CorDTO> loadTabelaCor() throws AppException {
+        List<CorDTO> lista = new ArrayList<>();
+        
+        try {
+            CorDAO corDao = new CorDAO();
+            lista = corDao.findAll();
+        } catch (Exception ex) {
+            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lista;
+    }
     
     @Override
     public boolean registrarUf(int uf_id, String uf_nome, String nome_estado) 
@@ -37,22 +51,21 @@ public class SessaoBean implements SessaoBeanRemote, SessaoBeanLocal {
     }
     
     @Override
-    public void registrarCor(CorDTO cor) throws AppException {
-        String sql = "INSERT INTO COR (COR) VALUES (?)";
+    public boolean registrarCor(String corNome) throws AppException {
+        boolean result = false;
         
         try {
-            Class.forName("org.firebirdsql.jdbc.FBDriver");
-            Connection con = DriverManager.getConnection("jdbc:firebirdsql://localhost:3050/C:\\Users\\User\\Documents\\Banco de Dados\\ecommerce.fdb" + "?encoding=WIN1252", "SYSDBA", "masterkey");
-            PreparedStatement p = con.prepareStatement(sql);
-            p.setString(1, cor.getCor());
-            p.execute();
-        } catch (ClassNotFoundException | SQLException ex) {
+            CorDAO corDAO = new CorDAO();
+            Cor cor = new Cor();
+            
+            cor.setCor(corNome);
+            corDAO.save(cor);
+            
+            result = true;
+        } catch (Exception ex) {
             Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
-    @Override
-    public void pesquisarUf(int ufId) throws AppException {
         
+        return result;
     }
 }

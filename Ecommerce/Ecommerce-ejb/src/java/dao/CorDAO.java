@@ -1,5 +1,6 @@
 package dao;
 
+import dto.CorDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,93 +11,69 @@ import model.Cor;
 import util.ConnectionUtil;
 
 public class CorDAO {
-    private Connection con;
+    
+    Connection con;
     
     public CorDAO() throws Exception {
         con = ConnectionUtil.getConnection();
     }
     
     public void save(Cor cor) throws Exception {
-        String SQL = "INSERT INTO COR(COR) VALUES(?)";
+        String sql = "INSERT INTO COR (COR) VALUES (?)";
         try {
-            PreparedStatement p = con.prepareStatement(SQL);
-            p.setString(1, cor.getCor());
-            p.execute();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, cor.getCor());
+            ps.execute();
         } catch (SQLException ex) {
             throw new Exception(ex);
         }
     }
     
     public void update(Cor cor) throws Exception {
-        String SQL = "UPDATE COR SET COR=? WHERE COR_ID=?";
+        String sql = "UPDATE COR SET COR=? WHERE COR_ID=?";
         try {
-            PreparedStatement p = con.prepareStatement(SQL);
-            p.setString(1, cor.getCor());
-            p.setInt(2, cor.getCorId());
-            p.execute();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, cor.getCor());
+            ps.setInt(2, cor.getCorId());
+            ps.execute();
         } catch (SQLException ex) {
             throw new Exception(ex);
         }
     }
     
     public void delete(Cor cor) throws Exception {
-        String SQL = "DELETE FROM COR WHERE COR_ID=?";
+        String sql = "DELETE FROM COR WHERE COR_ID=?";
         try {
-            PreparedStatement p = con.prepareStatement(SQL);
-            p.setInt(1, cor.getCorId());
-            p.execute();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, cor.getCorId());
+            ps.execute();
         } catch (SQLException ex) {
             throw new Exception(ex);
         }
     }
     
-    public List<Cor> findAll() throws Exception {
-        List<Cor> list = new ArrayList<>();
-        Cor objeto;
+    public List<CorDTO> findAll() throws Exception {
+        List<CorDTO> list = new ArrayList<>();
+        CorDTO objeto;
         
-        String SQL = "SELECT * FROM COR";
-        
+        String sql = "SELECT * FROM COR";
         try {
-            PreparedStatement p = con.prepareStatement(SQL);
-            ResultSet rs = p.executeQuery();
-            
-            while(rs.next()) {
-                objeto = new Cor();
-                objeto.setCorId(rs.getInt("cor_id"));
-                objeto.setCor(rs.getString("cor"));
-                list.add(objeto);
+            try ( PreparedStatement ps = con.prepareStatement(sql);
+                    ResultSet rs = ps.executeQuery()) {
+                while(rs.next()) {
+                    objeto = new CorDTO();
+                    objeto.setCorId(rs.getInt("cor_id"));
+                    objeto.setCor(rs.getString("cor"));
+                    list.add(objeto);
+                }
+                
+                rs.close();
+                ps.close();
             }
-            
-            rs.close();
-            p.close();
         } catch (SQLException ex) {
             throw new Exception(ex);
         }
         
         return list;
-    }
-    
-    public Cor findById(int id) throws Exception {
-        try {
-            String SQL = "SELECT * FROM COR WHERE COR_ID=?";
-            
-            Cor cor = new Cor();
-            
-            PreparedStatement p = con.prepareStatement(SQL);
-            p.setInt(1, id);
-            
-            ResultSet rs = p.executeQuery();
-            
-            if (rs.next()) {
-                cor.setCorId(rs.getInt("cor_id"));
-                cor.setCor(rs.getString("cor"));
-            }
-            
-            con.close();
-            
-            return cor;
-        } catch (SQLException ex) {
-            throw new Exception("Erro ao processar consulta! Verifique o log do aplicativo.", ex);
-        }
     }
 }
