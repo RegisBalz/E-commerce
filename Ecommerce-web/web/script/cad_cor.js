@@ -11,7 +11,15 @@ function loadTabela() {
         if (this.readyState === 4 && this.status === 200) {
             var obj = JSON.parse(this.responseText);
             for (var i in obj) {
-                console.log(obj[i]);
+                tr = document.createElement('tr');
+                
+                for (var x in obj[i]) {
+                    td = document.createElement('td');
+                    td.textContent = obj[i][x];
+                    tr.appendChild(td);
+                }
+                
+                document.querySelector('tbody').appendChild(tr);
             }
         }
     };
@@ -33,6 +41,12 @@ function registrarCampos(e) {
     http.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             parseJson(this.responseText);
+            
+            while (document.querySelector('tbody').rows.length > 0) {
+                document.querySelector('tbody').deleteRow(0);
+            }
+            
+            loadTabela();
         }
         
         if (this.readyState === 4 && this.status !== 200) {
