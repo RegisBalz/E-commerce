@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cadastro de Classificações</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>Cadastro de Classificações</legend>
+                <div>
+                    <label for="classId">Classificação ID:</label>
+                    <input type="text" id="classId" name="classId" disabled>
+                </div>
+                <div>
+                    <label for="subclass">Subclassificação:</label>
+                    <select id="subclass" name="subclass">
+                    </select>
+                </div>
+                <div>
+                    <label for="classificacao">Classificação:</label>
+                    <input type="text" id="classificacao" name="classificacao">
+                </div>
+                <input type="button" value="Salvar">
+                <input type="button" value="Novo">
+                <input type="button" value="Remover">
+                <input type="button" value="Editar">
+                <input type="button" value="Cancelar">
+            </fieldset>
+        </form>
+        
+        <span id="result"></span>
+        
+        <table border="1">
+            <caption>Banco de Dados</caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Subclassificação</th>
+                    <th>Classificação</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        
+        <script src="../script/cad-classificacao.js" type="text/javascript"></script>
+    </body>
+</html>

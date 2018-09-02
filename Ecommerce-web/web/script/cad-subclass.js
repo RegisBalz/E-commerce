@@ -1,10 +1,12 @@
 function init() {
     loadTabela();
-    document.querySelector('input[value="Salvar"]').addEventListener('click', registrarCampos);
+    document.querySelector('input[value="Salvar"]').addEventListener('click', salvarCampos);
+    document.querySelector('input[value="Remover"]').addEventListener('click', removerCampos);
 }
 
 function loadTabela() {
-    var URL = 'http://localhost:8080/ecommerce-web/cadastro-cor';
+    var URL = 'http://localhost:8080/ecommerce-web/cadastro-subclass';
+    
     var http = new XMLHttpRequest();
     
     http.onreadystatechange = function () {
@@ -30,12 +32,12 @@ function loadTabela() {
     http.send(null);
 }
 
-function registrarCampos(e) {
+function salvarCampos(e) {
     var oForm = e.target.form;
-    var URL = 'http://localhost:8080/ecommerce-web/cadastro-cor';
+    var URL = 'http://localhost:8080/ecommerce-web/cadastro-subclass';
     
     var formData = {};
-    formData['cor'] = oForm.cor.value;
+    formData['sub_classificacao'] = oForm.subclass.value;
     
     var http = new XMLHttpRequest();
     
@@ -62,6 +64,15 @@ function registrarCampos(e) {
     http.open('POST', URL);
     http.setRequestHeader('Content-type', 'application/json');
     http.send(JSON.stringify(formData));
+}
+
+function removerCampos() {
+    var linhaSel = document.querySelector('.linha');
+    console.log('pimentinha');
+    if (linhaSel) {
+        linhaSel.parentNode.removeChild(linhaSel);
+        document.querySelector('form').reset();
+    }
 }
 
 function parseJson(jsonData) {

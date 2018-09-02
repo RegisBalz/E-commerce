@@ -1,6 +1,8 @@
-package model;
+package dto;
 
-public class SubClassificacao {
+import java.io.Serializable;
+
+public class SubClassificacaoDTO implements Serializable {
     private int subClassId;
     private String subClassificacao;
 

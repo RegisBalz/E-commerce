@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cadastro de Cores</title>
+        <title>Cadastro de Subclassificações</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../style/style-cor-form.css" rel="stylesheet" type="text/css"/>
+        <link href="../style/formulario.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <form>
             <fieldset>
-                <legend>Cadastro de Cores</legend>
+                <legend>Cadastro de Subclassificações</legend>
                 <div>
-                    <label for="cor_id">Cor ID:</label>
-                    <input type="text" id="cor_id" name="cor_id" disabled>
+                    <label for="subclassId">ID:</label>
+                    <input type="text" id="subclassId" name="subclassId" disabled>
                 </div>
                 <div>
-                    <label for="cor">Cor:</label>
-                    <input type="text" id="cor" name="cor">
+                    <label for="subclass">Subclassificação:</label>
+                    <input type="text" id="subclass" name="subclass">
                 </div>
                 <input type="button" value="Salvar">
                 <input type="button" value="Novo">
@@ -31,14 +31,14 @@
             <caption>Banco de Dados</caption>
             <thead>
                 <tr>
-                    <th>Cor ID</th>
-                    <th>Cor</th>
+                    <th>ID</th>
+                    <th>Subclassificação</th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
         </table>
         
-        <script src="../script/cad_cor.js" type="text/javascript"></script>
+        <script src="../script/cad-subclass.js" type="text/javascript"></script>
     </body>
 </html>

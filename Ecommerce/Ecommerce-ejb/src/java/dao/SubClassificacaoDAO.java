@@ -1,5 +1,6 @@
 package dao;
 
+import dto.SubClassificacaoDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,9 +52,9 @@ public class SubClassificacaoDAO {
         }
     }
     
-    public List<SubClassificacao> findAll() throws Exception {
-        List<SubClassificacao> list = new ArrayList<>();
-        SubClassificacao objeto;
+    public List<SubClassificacaoDTO> findAll() throws Exception {
+        List<SubClassificacaoDTO> list = new ArrayList<>();
+        SubClassificacaoDTO objeto;
         
         String sql = "SELECT * FROM SUB_CLASSIFICACAO";
         
@@ -61,7 +62,7 @@ public class SubClassificacaoDAO {
             try ( PreparedStatement ps = con.prepareStatement(sql);
                     ResultSet rs = ps.executeQuery()) {
                 while(rs.next()) {
-                    objeto = new SubClassificacao();
+                    objeto = new SubClassificacaoDTO();
                     objeto.setSubClassId(rs.getInt("sub_class_id"));
                     objeto.setSubClassificacao(rs.getString("sub_classificacao"));
                     list.add(objeto);

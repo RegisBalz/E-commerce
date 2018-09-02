@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CorServlet extends HttpServlet {
+public class SubclassServlet extends HttpServlet {
     
     @EJB
     private SessaoBeanRemote bean;
@@ -38,12 +38,12 @@ public class CorServlet extends HttpServlet {
         }
         
         JsonReader reader = Json.createReader(new StringReader(content));
-        JsonObject cor = reader.readObject();
-        String corNome = cor.getJsonString("cor").getString();
+        JsonObject objeto = reader.readObject();
+        String subclass = objeto.getJsonString("sub_classificacao").getString();
         String retorno;
         
         try {
-            boolean ret = bean.registrarSubclass(corNome);
+            boolean ret = bean.registrarSubclass(subclass);
             
             if (ret) {
                 retorno = "O registro foi adicionado com sucesso!";
@@ -72,7 +72,7 @@ public class CorServlet extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         
         try {
-            lista = mapper.writeValueAsString(bean.loadTabelaCor());
+            lista = mapper.writeValueAsString(bean.loadTabelaSubclass());
         } catch (AppException ex) {
             Logger.getLogger(CorServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

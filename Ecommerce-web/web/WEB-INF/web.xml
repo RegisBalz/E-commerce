@@ -12,6 +12,14 @@
         <servlet-name>CorServlet</servlet-name>
         <servlet-class>web.CorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SubclassServlet</servlet-name>
+        <servlet-class>web.SubclassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ClassificacaoServlet</servlet-name>
+        <servlet-class>web.ClassificacaoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroUsuariosServlet</servlet-name>
         <url-pattern>/cadastro</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>CorServlet</servlet-name>
         <url-pattern>/cadastro-cor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubclassServlet</servlet-name>
+        <url-pattern>/cadastro-subclass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClassificacaoServlet</servlet-name>
+        <url-pattern>/cadastro-classificacao</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
