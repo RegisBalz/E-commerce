@@ -5,40 +5,112 @@
         <servlet-class>web.CadastroUsuariosServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>UFServlet</servlet-name>
-        <servlet-class>web.UFServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CorServlet</servlet-name>
-        <servlet-class>web.CorServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SubclassServlet</servlet-name>
-        <servlet-class>web.SubclassServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ClassificacaoServlet</servlet-name>
         <servlet-class>web.ClassificacaoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadTabelaUFServlet</servlet-name>
+        <servlet-class>web.LoadTabelaUFServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadTabelaSubclassServlet</servlet-name>
+        <servlet-class>web.LoadTabelaSubclassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadTabelaClassServlet</servlet-name>
+        <servlet-class>web.LoadTabelaClassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SaveUFServlet</servlet-name>
+        <servlet-class>web.SaveUFServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveUFServlet</servlet-name>
+        <servlet-class>web.RemoveUFServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadTabelaMarcaServlet</servlet-name>
+        <servlet-class>web.LoadTabelaMarcaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SaveMarcaServlet</servlet-name>
+        <servlet-class>web.SaveMarcaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveMarcaServlet</servlet-name>
+        <servlet-class>web.RemoveMarcaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SaveSubclassServlet</servlet-name>
+        <servlet-class>web.SaveSubclassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveSubclassServlet</servlet-name>
+        <servlet-class>web.RemoveSubclassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadCheckboxClassServlet</servlet-name>
+        <servlet-class>web.LoadCheckboxClassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SaveClassServlet</servlet-name>
+        <servlet-class>web.SaveClassServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CadastroUsuariosServlet</servlet-name>
         <url-pattern>/cadastro</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UFServlet</servlet-name>
-        <url-pattern>/cadastro-uf</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CorServlet</servlet-name>
-        <url-pattern>/cadastro-cor</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SubclassServlet</servlet-name>
-        <url-pattern>/cadastro-subclass</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ClassificacaoServlet</servlet-name>
         <url-pattern>/cadastro-classificacao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadTabelaUFServlet</servlet-name>
+        <url-pattern>/loadTabelaUF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadTabelaSubclassServlet</servlet-name>
+        <url-pattern>/loadTabelaSubclass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadTabelaClassServlet</servlet-name>
+        <url-pattern>/loadTabelaClass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SaveUFServlet</servlet-name>
+        <url-pattern>/saveUF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveUFServlet</servlet-name>
+        <url-pattern>/removeUF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadTabelaMarcaServlet</servlet-name>
+        <url-pattern>/loadTabelaMarca</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SaveMarcaServlet</servlet-name>
+        <url-pattern>/saveMarca</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveMarcaServlet</servlet-name>
+        <url-pattern>/removeMarca</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SaveSubclassServlet</servlet-name>
+        <url-pattern>/saveSubclass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveSubclassServlet</servlet-name>
+        <url-pattern>/removeSubclass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadCheckboxClassServlet</servlet-name>
+        <url-pattern>/loadCheckboxClass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SaveClassServlet</servlet-name>
+        <url-pattern>/saveClass</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

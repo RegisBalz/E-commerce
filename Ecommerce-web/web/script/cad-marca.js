@@ -12,7 +12,7 @@ function init() {
 }
 
 function loadTabela() {
-    var URL = 'http://localhost:8080/ecommerce-web/loadTabelaSubclass';
+    var URL = 'http://localhost:8080/ecommerce-web/loadTabelaMarca';
     var http = new XMLHttpRequest();
     
     http.onreadystatechange = function () {
@@ -45,31 +45,31 @@ function novoRegistro() {
     }
     
     document.querySelector('form').reset();
-    document.querySelector('#subclass').focus();
+    document.querySelector('#marca_nome').focus();
     btnRemover.setAttribute('disabled', 'disabled');
 }
 
 function salvarCampos(e) {
     var oForm = e.target.form;
     var formData = {};
-    formData['subclass'] = oForm.subclass.value;
+    formData['marca_nome'] = oForm.marca_nome.value;
     
     if (document.querySelector('.selected')) {
-        formData['subclass_id'] = Number(oForm.subclass_id.value);
+        formData['marca_id'] = Number(oForm.marca_id.value);
         var metodo = 'PUT';
     } else {
         var metodo = 'POST';
     }
     
     var msg = [];
-    if (/[A-Z]|[0-9]/i.test(formData.subclass) === false) {
-        msg.push('- O campo Subclassificação é obrigatório!');
+    if (/[A-Z]|[0-9]/i.test(formData.marca_nome) === false) {
+        msg.push('- O campo Marca é obrigatório!');
     }
     
     if (msg.length > 0) {
         alert('Preencha os campos corretamente:\n' + msg.join('\n'));
     } else {
-        var URL = 'http://localhost:8080/ecommerce-web/saveSubclass';
+        var URL = 'http://localhost:8080/ecommerce-web/saveMarca';
         var http = new XMLHttpRequest();
         
         http.onreadystatechange = function () {
@@ -103,9 +103,9 @@ function removerCampos(e) {
     if (confirm("Tem certeza que deseja excluir o registro selecionado?")) {
         var oForm = e.target.form;
         var formData = {};
-        formData['subclass_id'] = Number(oForm.subclass_id.value);
+        formData['marca_id'] = Number(oForm.marca_id.value);
         
-        var URL = 'http://localhost:8080/ecommerce-web/removeSubclass';
+        var URL = 'http://localhost:8080/ecommerce-web/removeMarca';
         var http = new XMLHttpRequest();
         
         http.onreadystatechange = function () {

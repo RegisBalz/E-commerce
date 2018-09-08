@@ -1,0 +1,18 @@
+#uf_id {
+    width: 4em;
+}
+#uf_nome {
+    width: 4em;
+}
+#nome_estado {
+    width: 24em;
+}
+.tabelaID {
+    width: 6em;
+}
+.tabelaUF {
+    width: 6em;
+}
+.tabelaEstado {
+    width: 36em;
+}

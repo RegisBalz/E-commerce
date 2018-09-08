@@ -1,16 +1,143 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html lang="pt-BR">
+	<head>
+		<title>TODO supply a title</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="style/normalize.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Corben|Open+Sans:400,700" rel="stylesheet">
+		<link href="style/home.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<!--[if lt IE 9]>
+			<script src="script/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<header class="header-main">
+				<div class="header-logo">
+					<a href="index.html">
+						<i class="fas fa-gem"></i>
+						<h2>Balz Compras</h2>
+						<h5>Eletrônicos pelos melhores preços</h5>
+					</a>
+				</div>
+				<div class="header-busca">
+					<form action="#" method="get" role="search">
+						<input type="search" name="search" placeholder="Procure por algum produto aqui!">
+						<button type="submit"><i class="fas fa-search"></i></button>
+					</form>
+				</div>
+				<div class="header-cart">
+					<a href="#">
+						<i class="fas fa-shopping-cart"></i>
+						<span>1</span>
+						<h5>Carrinho de Compras</h5>
+					</a>
+				</div>
+			</header>
+			<div class="menu">
+				<div class="menu-main">
+					<h2>CATEGORIAS</h2>
+					<i class="fas fa-bars"></i>
+					<i class="fas fa-angle-down"></i>
+					<nav class="nav-menu">
+						<a href="#">ASDSAD</a>
+						<a href="#">BSDASD</a>
+						<a href="#">CDDSSD</a>
+						<a href="#">DAASDA</a>
+						<a href="#">XSDASD</a>
+						<a href="#">HJJKAS</a>
+						<a href="#">PEJESA</a>
+					</nav>
+				</div>
+				<div class="menu-addt">
+					<a href="#">Ofertas!</a>
+					<a href="#">Contato</a>
+					<a href="#">Novidades</a>
+					<a href="#">Ajuda</a>
+				</div>
+			</div>
+			<main class="content">
+				<h2>PRODUTOS</h2>
+				<div class="catalogo">
+					<div class="product-item">
+						<a href="#">
+							<h5 class="product-name">Notebook Dell Inspiron I15-3567-A10P Intel Core 6ª i3 4GB 1TB</h5>
+						</a>
+						<img class="product-img" src="https://images-americanas.b2w.io/produtos/01/00/item/133276/5/133276561_1GG.png">
+						<span class="">R$ 1.849,99</span>
+						<button class="btn-carrinho">ADD +</button>
+					</div>
+					<div class="product-item">
+						<a href="#">
+							<h5 class="product-name">Notebook Samsung Expert X22 Intel Core 7 i5 8GB 1TB</h5>
+						</a>
+						<img class="product-img" src="https://images-americanas.b2w.io/produtos/01/00/item/132260/6/132260681_1GG.jpg">
+						<span class="">R$ 1.950,00</span>
+						<button class="btn-carrinho">ADD +</button>
+					</div>
+					<div class="product-item">
+						<a href="#">
+							<h5 class="product-name">Notebook Positivo Motion Q232A Intel Atom Quad Core 2GB 32GB SSD Tela LCD 14" Windows 10 - Vermelho</h5>
+						</a>
+						<img class="product-img" src="https://images-americanas.b2w.io/produtos/01/00/item/132897/6/132897606_1GG.png">
+						<span class="">R$ 849,99</span>
+						<button class="btn-carrinho">ADD +</button>
+					</div>
+					<div class="product-item">
+						<a href="#">
+							<h5 class="product-name">Notebook Positivo Motion Q232A Intel Atom 2GB SSD 32GB Tela LCD 14" Windows 10 Home - Prata</h5>
+						</a>
+						<img class="product-img" src="https://images-americanas.b2w.io/produtos/01/00/item/133359/7/133359703_1GG.png">
+						<span class="">R$ 849,99</span>
+						<button class="btn-carrinho">ADD +</button>
+					</div>
+					<div class="product-item">
+						<a href="#">
+							<h5 class="product-name">Notebook Positivo Stilo XCI3650 Intel Celeron Dual Core 4GB 500GB 14" Linux - Cinza</h5>
+						</a>
+						<img class="product-img" src="https://images-americanas.b2w.io/produtos/01/00/item/129135/4/129135432_1GG.png">
+						<span class="">R$ 979,99</span>
+						<button class="btn-carrinho">ADD +</button>
+					</div>
+					<div class="product-item">
+						<a href="#">
+							<h5 class="product-name">Notebook Lenovo Ideapad 320 Intel Core i3 4GB 1TB</h5>
+						</a>
+						<img class="product-img" src="https://images-americanas.b2w.io/produtos/01/00/item/132952/7/132952708_1GG.jpg">
+						<span class="">R$ 1.799,99</span>
+						<button class="btn-carrinho">ADD +</button>
+					</div>
+					<div class="product-item">
+						<a href="#">
+							<h5 class="product-name">Notebook Lenovo Ideapad 330 Intel Core i5-8250u 8GB 1TB Tela HD 15.6" Windows 10 - Prata</h5>
+						</a>
+						<img class="product-img" src="https://images-americanas.b2w.io/produtos/01/00/item/133775/9/133775934_1GG.jpg">
+						<span class="">R$ 2.299,99</span>
+						<button class="btn-carrinho">ADD +</button>
+					</div>
+				</div>
+			</main>
+			<footer class="rodape">
+				<div class="rodape-info">
+					<span>Balz Compras &#169; 2018</span>
+					<address>Avenida coragem 522, Lugar Nenhum</address>
+					<span>Fone +55 55 1234-5678</span>
+				</div>
+				<div class="header-logo rodape-logo">
+					<a href="index.html">
+						<i class="fas fa-gem"></i>
+						<h2>Balz Compras</h2>
+					</a>
+				</div>
+				<div class="rodape-social">
+					<a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+					<a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+					<a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+					<a href="#" title="Youtube"><i class="fab fa-youtube"></i></a>
+				</div>
+			</footer>
+		</div>
+	</body>
 </html>

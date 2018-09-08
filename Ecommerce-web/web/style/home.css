@@ -1,0 +1,320 @@
+html {
+	font:16px/100% 'Open Sans', sans-serif;
+}
+
+.container, 
+.header-main, 
+.menu, 
+.content, 
+.rodape {
+	box-sizing:border-box;
+}
+
+.container {
+	width:100%;
+}
+
+.header-main {
+	display:inline-block;
+	width:100%;
+	text-align:center;
+	background-color:#2e3dc3;
+	border-bottom:.1em solid #fff;
+}
+
+.header-main div {
+	display:inline-block;
+}
+
+.header-logo {
+	float:left;
+	width:16em;
+	margin:.75em 0;
+}
+
+.header-logo a {
+	text-decoration:none;
+	color:#fff;
+}
+
+.header-logo i {
+	font-size:1.75em;
+}
+
+.header-logo h2 {
+	font-family:'Corben', cursive;
+	font-size:1.5em;
+	margin:.2em 0;
+}
+
+.header-logo h5 {
+	margin:0;
+	font-size:.83em;
+	line-height:2.75em;
+}
+
+.header-busca {
+	width:50%;
+	margin:.75em 0;
+}
+
+.header-busca form {
+	position:relative;
+	width:100%;
+	display:inline-block;
+	margin:1.5em 0;
+	box-shadow:.3em .3em .3em rgba(0,0,0,.4);
+}
+
+.header-busca form input {
+	width:100%;
+	float:left;
+	padding-right:5em;
+	padding-left:.25em;
+	line-height:2.4em;
+	border-radius:.2em;
+	border:none;
+}
+
+.header-busca form button {
+	position:absolute;
+	right:0;
+	float:right;
+	width:5em;
+	line-height:2.15em;
+	cursor: pointer;
+	background-color:#fff;
+}
+
+.header-cart {
+	float:right;
+	width:11em;
+	margin:1.475em 0;
+}
+
+.header-cart a {
+	text-decoration:none;
+	color:#fff;
+}
+
+.header-cart .fas.fa-shopping-cart {
+	font-size:2em;
+}
+
+.header-cart span {
+	font-size:.8em;
+	font-weight:bold;
+}
+
+.header-cart h5 {
+	margin:.7em 0;
+}
+
+.menu {
+	position:relative;
+	height:2.15em;
+	background-color:#2e3dc3;
+	color:#fff;
+}
+
+.menu div {
+	display:inline-block;
+}
+
+.menu-main {
+	position:relative;
+	margin-left:.5em;
+	cursor:pointer;
+}
+
+.menu-main h2 {
+	display:inline-block;
+	font-size:1.15em;
+	margin:.5em;
+}
+
+.menu-main .fas.fa-bars {
+	display:none;
+	font-size:1.3em;
+	margin-left:.5em;
+}
+
+.menu-main .nav-menu a {
+	display:none;
+}
+
+.nav-menu {
+	position:absolute;
+	width:15em;
+	border-top:2px solid #fff;
+	background-color:#eee;
+}
+
+.menu-main:hover .nav-menu a {
+	display:block;
+}
+
+.menu-main .fas.fa-angle-down {
+	transition: transform .5s;
+}
+
+.menu-main:hover .fas.fa-angle-down {
+	transform:rotate(360deg);
+}
+
+.nav-menu a {
+	text-decoration:none;
+	text-align:center;
+	padding:.5em 0;
+	font-weight: bold;
+	border-bottom:1px solid #000;
+	color:#2e3dc3;
+}
+
+.nav-menu a:hover {
+	background-color:#dde;
+}
+
+.menu-addt {
+	position:absolute;
+	left:12em;
+}
+
+.menu-addt a {
+	display:inline-block;
+	text-decoration:none;
+	margin:.575em;
+	color:#fff;
+	padding-right:1.3em;
+	border-right:1px solid #fff;
+}
+
+.menu-addt a:hover {
+	text-decoration:underline;
+}
+
+.menu-addt a:last-child {
+	border-right:none;
+}
+
+.content {
+	width:100%;
+	border-top:2px solid #fff;
+	border-bottom:2px solid #fff;
+	overflow:hidden;
+}
+
+.content > h2 {
+	padding:.75em;
+	margin:0 .85em .5em;
+	border-bottom:2px solid #e5e5e5;
+}
+
+.catalogo {
+	font-size:.75em;
+	width:100%;
+	padding:.3125em;
+}
+
+.product-item {
+	border:.0625em solid #000;
+	border-radius:.75em;
+	width:18.75em;
+	display:inline-block;
+	padding:.625em;
+	margin:.3125em;
+	box-shadow:.25em .375em .375em 0 #888;
+}
+
+.product-item a {
+	text-decoration:none;
+	color:#000;
+}
+
+.product-name {
+	font-size:1.2em;
+	display:-webkit-box;
+	-webkit-line-clamp:3;
+	-webkit-box-orient:vertical;
+	margin:1em 0;
+	text-align:center;
+	font-weight:bold;
+	line-height:1.25em;
+	overflow:hidden;
+    height:3.75em;
+}
+
+.product-img {
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	padding:.625em;
+	max-width:16.25em;
+}
+
+.product-img:hover {
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+	transition: all 0.3s;
+}
+
+.product-price {
+	float:left;
+	padding:.625em;
+}
+
+.btn-carrinho {
+	float:right;
+	font-size:1.2em;
+	height:1.75em;
+	width:8.3125em;
+	border-radius:.1875em;
+	border:none;
+	cursor:pointer;
+	background-color:#007200;
+	color:#fff;
+}
+
+.rodape {
+	display:inline-block;
+	width:100%;
+	text-align:center;
+	background-color:#2e3dc3;
+	color:#fff;
+}
+
+.rodape div {
+	vertical-align:top;
+	display:inline-block;
+}
+
+.rodape-info span {
+	line-height:2.3em;
+}
+
+.rodape-info {
+	font-size:1.1em;
+	float:left;
+	text-align:left;
+	margin:0 .5em;
+}
+
+.rodape-logo {
+	float:none;
+	text-align:center;
+	font-size:.9em;
+	margin: 1.5em 0;
+}
+
+.rodape-social {
+	float:right;
+	width:17.5em;
+	text-align:right;
+	margin:.5em;
+}
+
+.rodape-social i {
+	font-size:1.1em;
+	margin:.5em;
+	color:#fff;
+}

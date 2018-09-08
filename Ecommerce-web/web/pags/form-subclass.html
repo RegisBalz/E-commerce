@@ -4,40 +4,44 @@
         <title>Cadastro de Subclassificações</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../style/formulario.css" rel="stylesheet" type="text/css"/>
+        <link href="../style/forms/formulario.css" rel="stylesheet" type="text/css"/>
+        <link href="../style/forms/form-subclass.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <form>
-            <fieldset>
-                <legend>Cadastro de Subclassificações</legend>
-                <div>
-                    <label for="subclassId">ID:</label>
-                    <input type="text" id="subclassId" name="subclassId" disabled>
-                </div>
-                <div>
-                    <label for="subclass">Subclassificação:</label>
-                    <input type="text" id="subclass" name="subclass">
-                </div>
-                <input type="button" value="Salvar">
-                <input type="button" value="Novo">
-                <input type="button" value="Remover">
-                <input type="button" value="Editar">
-            </fieldset>
-        </form>
-        
-        <span id="result"></span>
-        
-        <table border="1">
-            <caption>Banco de Dados</caption>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Subclassificação</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="container">
+            <form>
+                <fieldset>
+                    <legend>CADASTRO DE SUBCLASSIFICAÇÕES</legend>
+                    <div>
+                        <label for="subclass_id">ID</label><br>
+                        <input type="text" id="subclass_id" name="subclass_id" disabled>
+                    </div>
+                    <div>
+                        <label for="subclass">SUBCLASSIFICAÇÃO</label><br>
+                        <input type="text" id="subclass" name="subclass" autofocus>
+                        <span>*</span>
+                    </div>
+                    
+                    <input type="button" value="Novo">
+                    <input type="button" value="Salvar">
+                    <input type="button" value="Remover" disabled>
+                    
+                    <span id="result"></span>
+                </fieldset>
+            </form>
+            
+            <table border="1">
+                <caption>BANCO DE DADOS</caption>
+                <thead>
+                    <tr>
+                        <th class="tabelaID">ID</th>
+                        <th class="tabelaSubclass">SUBCLASSIFICAÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
         
         <script src="../script/cad-subclass.js" type="text/javascript"></script>
     </body>

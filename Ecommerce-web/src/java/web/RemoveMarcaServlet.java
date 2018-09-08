@@ -1,7 +1,6 @@
 package web;
 
 import beans.SessaoBeanRemote;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.AppException;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,11 +18,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ClassificacaoServlet extends HttpServlet {
+public class RemoveMarcaServlet extends HttpServlet {
 
     @EJB
     private SessaoBeanRemote bean;
-
+    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
             throws ServletException, IOException {
@@ -31,7 +30,6 @@ public class ClassificacaoServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         
         PrintWriter saida = resp.getWriter();
-        
         String content;
         
         try (BufferedReader leitor = req.getReader()) {
@@ -40,31 +38,27 @@ public class ClassificacaoServlet extends HttpServlet {
         
         JsonReader reader = Json.createReader(new StringReader(content));
         JsonObject objeto = reader.readObject();
-        String mode = objeto.getJsonString("mode").getString();
+        int marca_id = objeto.getJsonNumber("marca_id").intValue();
         
-        String lista = null;
-        ObjectMapper mapper = new ObjectMapper();
-//        
-//        if (mode.equals("loadSelect")) {
-//            try {
-//                lista = mapper.writeValueAsString(bean.loadSelectSubclass());
-//            } catch (AppException ex) {
-//                Logger.getLogger(ClassificacaoServlet.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        } else if (mode.equals("loadTabela")) {
-//            try {
-//                lista = mapper.writeValueAsString(bean.loadTabelaClassificacao());
-//            } catch (AppException ex) {
-//                Logger.getLogger(ClassificacaoServlet.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//            
-        saida.write(lista);
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
-            throws ServletException, IOException {
+        String retorno;
+        boolean ret;
         
+        try {
+            ret = bean.removerCamposMarca(marca_id);
+            
+            if (ret) {
+                retorno = "O registro foi removido com sucesso!";
+            } else {
+                retorno = "O registro não foi removido. Houve um erro ao processar os dados!";
+            }
+        } catch (AppException ex) {
+            retorno = ex.getMessage();
+        }
+        
+        JsonObject json = Json.createObjectBuilder()
+                .add("message", retorno)
+                .build();
+        
+        saida.write(json.toString());
     }
 }

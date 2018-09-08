@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cadastro de Produtos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../style/forms/formulario.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container">
+            <form>
+                <fieldset>
+                    <div>
+                        <label for="produto_id">ID</label><br>
+                        <input type="text" id="produto_id" name="produto_id" disabled>
+                    </div>
+                    <div>
+                        <label for="classificacao">CLASSIFICAÇÃO</label><br>
+                        <select id="classificacao" name="classificacao">
+                        </select>
+                        <span>*</span>
+                    </div>
+                    <div>
+                        <label for="marca">MARCA</label><br>
+                        <select id="marca" name="marca">
+                        </select>
+                        <span>*</span>
+                    </div>
+                    <div>
+                        <label for="produto_nome">PRODUTO</label><br>
+                        <input type="text" id="produto_nome" name="produto_nome">
+                        <span>*</span>
+                    </div>
+                    <div>
+                        <label for="descricao">DESCRIÇÃO</label><br>
+                        <textarea rows="4" cols="50" id="descricao" name="descricao"></textarea>
+                    </div>
+                    <div>
+                        <label for="preco">PREÇO</label><br>
+                        <input type="text" id="preco" name="preco">
+                        <span>*</span>
+                    </div>
+                    <div>
+                        <label for="promocao">PROMOÇÃO</label><br>
+                        <input type="number" id="promocao" name="promocao">
+                    </div>
+                    <div>
+                        <label for="foto">FOTO</label>
+                        <input type="file" id="foto" name="foto">
+                        <span>*</span>
+                    </div>
+                    <div>
+                        <label for="tamanho">TAMANHO</label><br>
+                        <input type="text" id="tamanho" name="tamanho">
+                    </div>
+                    <div>
+                        <label for="peso">PESO</label><br>
+                        <input type="text" id="peso" name="peso">
+                    </div>
+                    <div>
+                        <label for="estoque">ESTOQUE</label><br>
+                        <input type="number" id="estoque" name="estoque">
+                        <span>*</span>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,14 +1,11 @@
 package web;
 
 import beans.SessaoBeanRemote;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.AppException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.ejb.EJB;
 import javax.json.Json;
@@ -19,8 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CorServlet extends HttpServlet {
-    
+public class RemoveUFServlet extends HttpServlet {
+
     @EJB
     private SessaoBeanRemote bean;
     
@@ -38,17 +35,19 @@ public class CorServlet extends HttpServlet {
         }
         
         JsonReader reader = Json.createReader(new StringReader(content));
-        JsonObject cor = reader.readObject();
-        String corNome = cor.getJsonString("cor").getString();
+        JsonObject objeto = reader.readObject();
+        int uf_id = objeto.getJsonNumber("uf_id").intValue();
+        
         String retorno;
+        boolean ret;
         
         try {
-            boolean ret = bean.registrarSubclass(corNome);
+            ret = bean.removerCamposUF(uf_id);
             
             if (ret) {
-                retorno = "O registro foi adicionado com sucesso!";
+                retorno = "O registro foi removido com sucesso!";
             } else {
-                retorno = "O registro não foi adicionado. Houve um erro ao processar os dados!";
+                retorno = "O registro não foi removido. Houve um erro ao processar os dados!";
             }
         } catch (AppException ex) {
             retorno = ex.getMessage();
@@ -59,24 +58,5 @@ public class CorServlet extends HttpServlet {
                 .build();
         
         saida.write(json.toString());
-    }
-    
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
-            throws ServletException, IOException {
-        resp.setContentType("application/json");
-        req.setCharacterEncoding("UTF-8");
-        
-        PrintWriter saida = resp.getWriter();
-        String lista = null;
-        ObjectMapper mapper = new ObjectMapper();
-        
-        try {
-            lista = mapper.writeValueAsString(bean.loadTabelaCor());
-        } catch (AppException ex) {
-            Logger.getLogger(CorServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        saida.write(lista);
     }
 }

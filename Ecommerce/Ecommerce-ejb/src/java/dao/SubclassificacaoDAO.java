@@ -1,70 +1,70 @@
 package dao;
 
-import dto.SubClassificacaoDTO;
+import dto.SubclassificacaoDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.SubClassificacao;
+import model.Subclassificacao;
 import util.ConnectionUtil;
 
-public class SubClassificacaoDAO {
+public class SubclassificacaoDAO {
     
     Connection con;
     
-    public SubClassificacaoDAO() throws Exception {
+    public SubclassificacaoDAO() throws Exception {
         con = ConnectionUtil.getConnection();
     }
     
-    public void save(SubClassificacao subClass) throws Exception {
-        String sql = "INSERT INTO SUB_CLASSIFICACAO (SUB_CLASSIFICACAO) VALUES (?)";
+    public void save(Subclassificacao subclass) throws Exception {
+        String sql = "INSERT INTO SUBCLASSIFICACAO (SUBCLASS_NOME) VALUES (?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, subClass.getSubClassificacao());
+            ps.setString(1, subclass.getSubclassNome());
             ps.execute();
         } catch (SQLException ex) {
             throw new Exception(ex);
         }
     }
     
-    public void update(SubClassificacao subClass) throws Exception {
-        String sql = "UPDATE SUB_CLASSIFICACAO SET SUB_CLASSIFICACAO=? WHERE SUB_CLASS_ID=?";
+    public void update(Subclassificacao subclass) throws Exception {
+        String sql = "UPDATE SUBCLASSIFICACAO SET SUBCLASS_NOME=? WHERE SUBCLASS_ID=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, subClass.getSubClassificacao());
-            ps.setInt(2, subClass.getSubClassId());
+            ps.setString(1, subclass.getSubclassNome());
+            ps.setInt(2, subclass.getSubclassId());
             ps.execute();
         } catch (SQLException ex) {
             throw new Exception(ex);
         }
     }
     
-    public void delete(SubClassificacao subClass) throws Exception {
-        String sql = "DELETE FROM SUB_CLASSIFICACAO WHERE SUB_CLASS_ID=?";
+    public void delete(Subclassificacao subclass) throws Exception {
+        String sql = "DELETE FROM SUBCLASSIFICACAO WHERE SUBCLASS_ID=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, subClass.getSubClassId());
+            ps.setInt(1, subclass.getSubclassId());
             ps.execute();
         } catch (SQLException ex) {
             throw new Exception(ex);
         }
     }
     
-    public List<SubClassificacaoDTO> findAll() throws Exception {
-        List<SubClassificacaoDTO> list = new ArrayList<>();
-        SubClassificacaoDTO objeto;
+    public List<SubclassificacaoDTO> findAll() throws Exception {
+        List<SubclassificacaoDTO> list = new ArrayList<>();
+        SubclassificacaoDTO objeto;
         
-        String sql = "SELECT * FROM SUB_CLASSIFICACAO";
+        String sql = "SELECT * FROM SUBCLASSIFICACAO";
         
         try {
             try ( PreparedStatement ps = con.prepareStatement(sql);
                     ResultSet rs = ps.executeQuery()) {
                 while(rs.next()) {
-                    objeto = new SubClassificacaoDTO();
-                    objeto.setSubClassId(rs.getInt("sub_class_id"));
-                    objeto.setSubClassificacao(rs.getString("sub_classificacao"));
+                    objeto = new SubclassificacaoDTO();
+                    objeto.setSubclassId(rs.getInt("subclass_id"));
+                    objeto.setSubclassNome(rs.getString("subclass_nome"));
                     list.add(objeto);
                 }
                 

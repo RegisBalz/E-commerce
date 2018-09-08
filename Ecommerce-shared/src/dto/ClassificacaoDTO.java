@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class ClassificacaoDTO implements Serializable {
     private int classId;
-    private SubClassificacaoDTO subClassificacao;
-    private String classificacao;
+    private SubclassificacaoDTO subclass;
+    private String classNome;
 
     public int getClassId() {
         return classId;
@@ -15,19 +15,19 @@ public class ClassificacaoDTO implements Serializable {
         this.classId = classId;
     }
 
-    public SubClassificacaoDTO getSubClassificacao() {
-        return subClassificacao;
+    public SubclassificacaoDTO getSubclass() {
+        return subclass;
     }
 
-    public void setSubClassificacao(SubClassificacaoDTO subClassificacao) {
-        this.subClassificacao = subClassificacao;
+    public void setSubclass(SubclassificacaoDTO subclass) {
+        this.subclass = subclass;
     }
 
-    public String getClassificacao() {
-        return classificacao;
+    public String getClassNome() {
+        return classNome;
     }
 
-    public void setClassificacao(String classificacao) {
-        this.classificacao = classificacao;
+    public void setClassNome(String classNome) {
+        this.classNome = classNome;
     }
 }

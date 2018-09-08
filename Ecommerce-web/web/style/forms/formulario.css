@@ -1,0 +1,71 @@
+html {
+    font: 16px arial;
+}
+.container {
+    background-color: white;
+}
+form {
+    margin: 2em;
+    font-weight: bold;
+    position: relative;
+}
+form fieldset {
+    border-radius: .5em;
+}
+form legend {
+    text-align: center;
+}
+fieldset > div {
+    margin: 1em;
+}
+.blocoUnido > div {
+    display: inline-block;
+    margin-right: 1em;
+}
+form label {
+    font-size: .8em;
+}
+form input[type="text"],
+form input[type="number"] {
+    line-height: 2em;
+    outline: none;
+    padding-left: .1em;
+    border: .1em solid black;
+    border-radius: .3em;
+}
+form select {
+    height: 2.4em;
+    border: .1em solid black;
+    border-radius: .3em;
+}
+form input[type="button"] {
+    width: 8em;
+    height: 2em;
+}
+form div > span {
+    color: red;
+    font-size: 1.2em;
+    margin: 0 .4em;
+}
+#result {
+    position: absolute;
+    top: 1.4em;
+    right: 1.8em;
+    font-weight: normal;
+}
+table {
+    margin: 0 auto;
+}
+table caption {
+    font-weight: bold;
+}
+table tr {
+    line-height: 1.7em;
+}
+.selected {
+    background-color: #2e3dc3;
+    color: white;
+}
+.sumir {
+    display: none;
+}

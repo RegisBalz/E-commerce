@@ -2,8 +2,8 @@ package model;
 
 public class Classificacao {
     private int classId;
-    private SubClassificacao subClassificacao;
-    private String classificacao;
+    private Subclassificacao subclass;
+    private String classNome;
 
     public int getClassId() {
         return classId;
@@ -13,19 +13,19 @@ public class Classificacao {
         this.classId = classId;
     }
 
-    public SubClassificacao getSubClassificacao() {
-        return subClassificacao;
+    public Subclassificacao getSubclass() {
+        return subclass;
     }
 
-    public void setSubClassificacao(SubClassificacao subClassificacao) {
-        this.subClassificacao = subClassificacao;
+    public void setSubclass(Subclassificacao subclass) {
+        this.subclass = subclass;
     }
 
-    public String getClassificacao() {
-        return classificacao;
+    public String getClassNome() {
+        return classNome;
     }
 
-    public void setClassificacao(String classificacao) {
-        this.classificacao = classificacao;
+    public void setClassNome(String classNome) {
+        this.classNome = classNome;
     }
 }

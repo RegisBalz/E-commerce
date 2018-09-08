@@ -6,8 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.ejb.EJB;
 import javax.json.Json;
@@ -18,7 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class UFServlet extends HttpServlet {
+public class SaveClassServlet extends HttpServlet {
+
     @EJB
     private SessaoBeanRemote bean;
     
@@ -26,27 +25,25 @@ public class UFServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
             throws ServletException, IOException {
         resp.setContentType("application/json");
+        req.setCharacterEncoding("UTF-8");
         
         PrintWriter saida = resp.getWriter();
-        
-        String content = "";
+        String content;
         
         try (BufferedReader leitor = req.getReader()) {
             content = leitor.lines().collect(Collectors.joining());
         }
         
         JsonReader reader = Json.createReader(new StringReader(content));
-        JsonObject uf = reader.readObject();
+        JsonObject objeto = reader.readObject();
+        String subclass = objeto.getJsonString("subclass").getString();
+        String class_nome = objeto.getJsonString("class_nome").getString();
         
-        int uf_id = uf.getJsonNumber("uf_id").intValue();
-        String uf_nome = uf.getJsonString("uf").getString();
-        String nome_estado = uf.getJsonString("nome_estado").getString();
-        
-        boolean ret = false;
-        String retorno = "";
+        String retorno;
+        boolean ret;
         
         try {
-            ret = bean.registrarUf(uf_id, uf_nome, nome_estado);
+            ret = bean.salvarCamposClass(subclass, class_nome);
             
             if (ret) {
                 retorno = "O registro foi adicionado com sucesso!";
@@ -54,7 +51,6 @@ public class UFServlet extends HttpServlet {
                 retorno = "O registro não foi adicionado. Houve um erro ao processar os dados!";
             }
         } catch (AppException ex) {
-            Logger.getLogger(UFServlet.class.getName()).log(Level.SEVERE, null, ex);
             retorno = ex.getMessage();
         }
         
@@ -64,9 +60,9 @@ public class UFServlet extends HttpServlet {
         
         saida.write(json.toString());
     }
-    
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) 
             throws ServletException, IOException {
         
     }

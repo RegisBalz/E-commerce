@@ -1,11 +1,12 @@
-package model;
+package dto;
 
+import java.io.Serializable;
 import java.sql.Blob;
 
-public class Produto {
+public class ProdutoDTO implements Serializable {
     private int produtoId;
-    private Classificacao classificacao;
-    private Marca marca;
+    private ClassificacaoDTO classificacao;
+    private MarcaDTO marca;
     private String produtoNome;
     private String descricao;
     private double preco;
@@ -23,19 +24,19 @@ public class Produto {
         this.produtoId = produtoId;
     }
 
-    public Classificacao getClassificacao() {
+    public ClassificacaoDTO getClassificacao() {
         return classificacao;
     }
 
-    public void setClassificacao(Classificacao classificacao) {
+    public void setClassificacao(ClassificacaoDTO classificacao) {
         this.classificacao = classificacao;
     }
 
-    public Marca getMarca() {
+    public MarcaDTO getMarca() {
         return marca;
     }
 
-    public void setMarca(Marca marca) {
+    public void setMarca(MarcaDTO marca) {
         this.marca = marca;
     }
 
