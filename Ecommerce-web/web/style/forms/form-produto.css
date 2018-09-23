@@ -1,0 +1,66 @@
+html {
+    font: 16px arial;
+}
+
+body {
+    margin: 2em 2.5em;
+}
+
+form {
+    position: relative;
+    font-weight: bold;
+}
+
+form fieldset {
+    border-radius: .5em;
+}
+
+fieldset legend {
+    text-align: center;
+}
+
+fieldset div {
+    display: block;
+    margin: 1em;
+}
+
+fieldset label {
+    display: block;
+    font-size: .8em;
+}
+
+fieldset div > input, 
+fieldset div > select, 
+fieldset div > textarea {
+    width: 22em;
+    padding: 0;
+    border: .0625em solid #000;
+    border-radius: .3125em;
+}
+
+fieldset div > input, 
+fieldset div > select {
+    height: 2.25em;
+}
+
+fieldset div > textarea {
+    resize: none;
+}
+
+fieldset div > input[type="file"] {
+    height: auto;
+    border: none;
+}
+
+fieldset div:nth-child(1) {
+    display: inline-block;
+}
+
+fieldset div:nth-child(2) {
+    display: inline-block;
+}
+
+.selected {
+    background-color: #2e3dc3;
+    color: #fff;
+}

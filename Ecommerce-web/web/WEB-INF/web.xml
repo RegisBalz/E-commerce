@@ -1,116 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>CadastroUsuariosServlet</servlet-name>
-        <servlet-class>web.CadastroUsuariosServlet</servlet-class>
+        <servlet-name>CategoriaServlet</servlet-name>
+        <servlet-class>web.CategoriaServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ClassificacaoServlet</servlet-name>
-        <servlet-class>web.ClassificacaoServlet</servlet-class>
+        <servlet-name>PrincipalServlet</servlet-name>
+        <servlet-class>web.PrincipalServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LoadTabelaUFServlet</servlet-name>
-        <servlet-class>web.LoadTabelaUFServlet</servlet-class>
+        <servlet-name>ProdutoInfoServlet</servlet-name>
+        <servlet-class>web.ProdutoInfoServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LoadTabelaSubclassServlet</servlet-name>
-        <servlet-class>web.LoadTabelaSubclassServlet</servlet-class>
+        <servlet-name>UFServlet</servlet-name>
+        <servlet-class>web.UFServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LoadTabelaClassServlet</servlet-name>
-        <servlet-class>web.LoadTabelaClassServlet</servlet-class>
+        <servlet-name>CarrinhoServlet</servlet-name>
+        <servlet-class>web.CarrinhoServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SaveUFServlet</servlet-name>
-        <servlet-class>web.SaveUFServlet</servlet-class>
+        <servlet-name>PedidoServlet</servlet-name>
+        <servlet-class>web.PedidoServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RemoveUFServlet</servlet-name>
-        <servlet-class>web.RemoveUFServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LoadTabelaMarcaServlet</servlet-name>
-        <servlet-class>web.LoadTabelaMarcaServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SaveMarcaServlet</servlet-name>
-        <servlet-class>web.SaveMarcaServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>RemoveMarcaServlet</servlet-name>
-        <servlet-class>web.RemoveMarcaServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SaveSubclassServlet</servlet-name>
-        <servlet-class>web.SaveSubclassServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>RemoveSubclassServlet</servlet-name>
-        <servlet-class>web.RemoveSubclassServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LoadCheckboxClassServlet</servlet-name>
-        <servlet-class>web.LoadCheckboxClassServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SaveClassServlet</servlet-name>
-        <servlet-class>web.SaveClassServlet</servlet-class>
+        <servlet-name>ProdutoServlet</servlet-name>
+        <servlet-class>web.ProdutoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>CadastroUsuariosServlet</servlet-name>
-        <url-pattern>/cadastro</url-pattern>
+        <servlet-name>CategoriaServlet</servlet-name>
+        <url-pattern>/categoria</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ClassificacaoServlet</servlet-name>
-        <url-pattern>/cadastro-classificacao</url-pattern>
+        <servlet-name>PrincipalServlet</servlet-name>
+        <url-pattern>/principal</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LoadTabelaUFServlet</servlet-name>
-        <url-pattern>/loadTabelaUF</url-pattern>
+        <servlet-name>ProdutoInfoServlet</servlet-name>
+        <url-pattern>/produtoInfo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LoadTabelaSubclassServlet</servlet-name>
-        <url-pattern>/loadTabelaSubclass</url-pattern>
+        <servlet-name>UFServlet</servlet-name>
+        <url-pattern>/uf</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LoadTabelaClassServlet</servlet-name>
-        <url-pattern>/loadTabelaClass</url-pattern>
+        <servlet-name>CarrinhoServlet</servlet-name>
+        <url-pattern>/carrinho</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SaveUFServlet</servlet-name>
-        <url-pattern>/saveUF</url-pattern>
+        <servlet-name>PedidoServlet</servlet-name>
+        <url-pattern>/pedido</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RemoveUFServlet</servlet-name>
-        <url-pattern>/removeUF</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoadTabelaMarcaServlet</servlet-name>
-        <url-pattern>/loadTabelaMarca</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SaveMarcaServlet</servlet-name>
-        <url-pattern>/saveMarca</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RemoveMarcaServlet</servlet-name>
-        <url-pattern>/removeMarca</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SaveSubclassServlet</servlet-name>
-        <url-pattern>/saveSubclass</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RemoveSubclassServlet</servlet-name>
-        <url-pattern>/removeSubclass</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoadCheckboxClassServlet</servlet-name>
-        <url-pattern>/loadCheckboxClass</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SaveClassServlet</servlet-name>
-        <url-pattern>/saveClass</url-pattern>
+        <servlet-name>ProdutoServlet</servlet-name>
+        <url-pattern>/produto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

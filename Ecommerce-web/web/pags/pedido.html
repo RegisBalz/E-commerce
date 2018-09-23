@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../style/normalize.css" rel="stylesheet" type="text/css">
+        <link href="../style/dinamico.css" rel="stylesheet" type="text/css"/>
+        <link href="../style/layout-pedido.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Corben|Open+Sans:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <!--[if lt IE 9]>
+            <script src="script/html5shiv.js"></script>
+        <![endif]-->
+        <title>Balz Compras - Pedido</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header-main">
+                <div class="header-logo">
+                    <a id="logomarca" href="../index.html">
+                        <i class="fas fa-gem"></i>
+                        <h2>Balz Compras</h2>
+                        <h5>Eletrônicos pelos melhores preços</h5>
+                    </a>
+                </div>
+                <div class="header-busca">
+                    <form action="http://localhost:8080/ecommerce-web/index.html" method="GET" role="search">
+                        <input type="search" id="search" name="search" placeholder="Procure por algum produto aqui!">
+                        <button type="submit" id="btnSearch"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="header-cart">
+                    <a href="carrinho.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="qtde-carrinho"></span>
+                        <h5>Carrinho de Compras</h5>
+                    </a>
+                </div>
+            </header>
+            <div class="menu">
+                <div class="menu-main">
+                    <h2>CATEGORIAS</h2>
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-angle-down"></i>
+                    <nav class="nav-menu">
+                    </nav>
+                </div>
+                <div class="menu-addt">
+                    <a id="ofertas" href="../index.html?condicao=carregarGridDesc">Ofertas!</a>
+                </div>
+            </div>
+            <main class="content">
+                <form>
+                    <fieldset>
+                        <legend>INFORME OS SEGUINTES CAMPOS</legend>
+                        <div>
+                            <label for="cliente">Nome completo</label><br>
+                            <input type="text" id="cliente" name="cliente" autofocus>
+                            <span>*</span>
+                        </div>
+                        <div>
+                            <label for="cpf_cnpj">CPF ou CNPJ</label><br>
+                            <input type="text" id="cpf_cnpj" name="cpf_cnpj">
+                            <span>*</span>
+                        </div>
+                        <div>
+                            <label>Estado</label><br>
+                            <select name="estado">
+                            </select>
+                            <span>*</span>
+                        </div>
+                        <div>
+                            <label for="cep">CEP</label><br>
+                            <input type="text" id="cep" name="cep">
+                            <span>*</span>
+                        </div>
+                        <div>
+                            <label for="cidade">Cidade</label><br>
+                            <input type="text" id="cidade" name="cidade">
+                            <span>*</span>
+                        </div>
+                        <div>
+                            <label for="bairro">Bairro</label><br>
+                            <input type="text" id="bairro" name="bairro">
+                            <span>*</span>
+                        </div>
+                        <div>
+                            <label for="rua">Rua</label><br>
+                            <input type="text" id="rua" name="rua">
+                            <span>*</span>
+                        </div>
+                        <div>
+                            <label for="numero">Número</label><br>
+                            <input type="text" id="numero" name="numero">
+                            <span>*</span>
+                        </div>
+                        <div>
+                            <label for="complemento">Complemento</label><br>
+                            <textarea rows="4" cols="50" id="complemento" name="complemento"></textarea>
+                        </div>
+                        <div>
+                            <label for="fone">Fone</label><br>
+                            <input type="text" id="fone" name="fone">
+                            <span>*</span>
+                        </div>
+                        <div>
+                            <label for="email">Email</label><br>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div>
+                            <label for="parcela">Parcelas</label><br>
+                            <input type="number" id="parcela" name="parcela">
+                            <span>*</span>
+                        </div>
+                        <input type="submit" value="REALIZAR COMPRA">
+                    </fieldset>
+                </form>
+            </main>
+            <footer class="rodape">
+                <div class="rodape-info">
+                    <span>Balz Compras &#169; 2018</span>
+                    <address>Avenida coragem 522, Lugar Nenhum</address>
+                    <span>Fone +55 55 1234-5678</span>
+                </div>
+                <div class="header-logo rodape-logo">
+                    <a href="../index.html">
+                        <i class="fas fa-gem"></i>
+                        <h2>Balz Compras</h2>
+                    </a>
+                </div>
+                <div class="rodape-social">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </footer>
+        </div>
+        <script src="../script/dinamico.js" type="text/javascript"></script>
+        <script src="../script/pedido.js" type="text/javascript"></script>
+    </body>
+</html>

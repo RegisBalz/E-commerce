@@ -7,14 +7,13 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class ConnectionUtil {
-    
     public static Connection getConnection() throws Exception {
         InitialContext ctx;
         Connection con = null;
         
         try {
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup("jdbc/Ecommerce-pool");
+            DataSource ds = (DataSource) ctx.lookup("jdbc/EcommerceResource");
             
             con = ds.getConnection();
         } catch (NamingException | SQLException ex) {

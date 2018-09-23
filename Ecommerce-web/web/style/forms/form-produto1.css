@@ -1,0 +1,15 @@
+#produto_id {
+    width: 4em;
+}
+#categoria {
+    width: 22em;
+}
+#produto, 
+#foto {
+    width: 26em;
+}
+#valor, 
+#desconto, 
+#estoque {
+    width: 8em;
+}

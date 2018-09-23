@@ -1,12 +1,10 @@
 package beans;
 
-import dao.ClassificacaoDAO;
-import dao.MarcaDAO;
-import dao.SubclassificacaoDAO;
+import dao.CategoriaDAO;
+import dao.ProdutoDAO;
 import dao.UFDAO;
-import dto.ClassificacaoDTO;
-import dto.MarcaDTO;
-import dto.SubclassificacaoDTO;
+import dto.CategoriaDTO;
+import dto.ProdutoDTO;
 import dto.UFDTO;
 import exceptions.AppException;
 import java.util.ArrayList;
@@ -14,101 +12,23 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
-import model.Classificacao;
-import model.Marca;
-import model.Subclassificacao;
+import model.Categoria;
+import model.Produto;
 import model.UF;
 
 @Stateless
 public class SessaoBean implements SessaoBeanRemote, SessaoBeanLocal {
     
     @Override
-    public List<SubclassificacaoDTO> loadCheckboxClass() 
-            throws AppException {
-        List<SubclassificacaoDTO> lista = new ArrayList<>();
-        
-        try {
-            SubclassificacaoDAO subclassDao = new SubclassificacaoDAO();
-            lista = subclassDao.findAll();
-        } catch (Exception ex) {
-            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return lista;
-    }
-    
-    @Override
-    public List<UFDTO> loadTabelaUF() throws AppException {
-        List<UFDTO> lista = new ArrayList<>();
-        
-        try {
-            UFDAO ufDao = new UFDAO();
-            lista = ufDao.findAll();
-        } catch (Exception ex) {
-            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
-            throw new AppException("Houve um erro ao processar a requisição! Contate o suporte!");
-        }
-        
-        return lista;
-    }
-    
-    @Override
-    public List<MarcaDTO> loadTabelaMarca() throws AppException {
-        List<MarcaDTO> lista = new ArrayList<>();
-        
-        try {
-            MarcaDAO marcaDao = new MarcaDAO();
-            lista = marcaDao.findAll();
-        } catch (Exception ex) {
-            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
-            throw new AppException("Houve um erro ao processar a requisição! Contate o suporte!");
-        }
-        
-        return lista;
-    }
-    
-    @Override
-    public List<SubclassificacaoDTO> loadTabelaSubclass() 
-            throws AppException {
-        List<SubclassificacaoDTO> lista = new ArrayList<>();
-        
-        try {
-            SubclassificacaoDAO subclassDao = new SubclassificacaoDAO();
-            lista = subclassDao.findAll();
-        } catch (Exception ex) {
-            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
-            throw new AppException("Houve um erro ao processar a requisição! Contate o suporte!");
-        }
-        
-        return lista;
-    }
-    
-    @Override
-    public List<ClassificacaoDTO> loadTabelaClass() 
-            throws AppException {
-        List<ClassificacaoDTO> lista = new ArrayList<>();
-        
-        try {
-            ClassificacaoDAO classDao = new ClassificacaoDAO();
-            lista = classDao.findAll();
-        } catch (Exception ex) {
-            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
-            throw new AppException("Houve um erro ao processar a requisição! Contate o suporte!");
-        }
-        
-        return lista;
-    }
-    
-    @Override
-    public boolean salvarCamposUF(String uf_nome, String nome_estado) 
+    public boolean salvarCamposUF(String ufNome, String nomeEstado) 
             throws AppException {
         boolean result = false;
         
         try {
             UFDAO ufDao = new UFDAO();
             UF uf = new UF();
-            uf.setUfNome(uf_nome);
-            uf.setNomeEstado(nome_estado);
+            uf.setUf(ufNome);
+            uf.setNomeEstado(nomeEstado);
             ufDao.save(uf);
             
             result = true;
@@ -120,74 +40,16 @@ public class SessaoBean implements SessaoBeanRemote, SessaoBeanLocal {
     }
     
     @Override
-    public boolean salvarCamposMarca(String marca_nome) 
-            throws AppException {
-        boolean result = false;
-        
-        try {
-            MarcaDAO marcaDao = new MarcaDAO();
-            Marca marca = new Marca();
-            marca.setMarcaNome(marca_nome);
-            marcaDao.save(marca);
-            
-            result = true;
-        } catch (Exception ex) {
-            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return result;
-    }
-    
-    @Override
-    public boolean salvarCamposSubclass(String subclass_nome) 
-            throws AppException {
-        boolean result = false;
-        
-        try {
-            SubclassificacaoDAO subclassDao = new SubclassificacaoDAO();
-            Subclassificacao subclass = new Subclassificacao();
-            subclass.setSubclassNome(subclass_nome);
-            subclassDao.save(subclass);
-            
-            result = true;
-        } catch (Exception ex) {
-            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return result;
-    }
-    
-    @Override
-    public boolean salvarCamposClass(String subclass_nome, String class_nome) 
-            throws AppException {
-        boolean result = false;
-        
-        try {
-            ClassificacaoDAO classDao = new ClassificacaoDAO();
-            Classificacao classificacao = new Classificacao();
-            classificacao.getSubclass().setSubclassNome(subclass_nome);
-            classificacao.setClassNome(class_nome);
-            classDao.save(classificacao);
-            
-            result = true;
-        } catch (Exception ex) {
-            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return result;
-    }
-    
-    @Override
-    public boolean atualizarCamposUF(String uf_nome, String nome_estado, int uf_id) 
+    public boolean atualizarCamposUF(String ufNome, String nomeEstado, int ufId) 
             throws AppException {
         boolean result = false;
         
         try {
             UFDAO ufDao = new UFDAO();
             UF uf = new UF();
-            uf.setUfNome(uf_nome);
-            uf.setNomeEstado(nome_estado);
-            uf.setUfId(uf_id);
+            uf.setUf(ufNome);
+            uf.setNomeEstado(nomeEstado);
+            uf.setUfId(ufId);
             ufDao.update(uf);
             
             result = true;
@@ -199,53 +61,13 @@ public class SessaoBean implements SessaoBeanRemote, SessaoBeanLocal {
     }
     
     @Override
-    public boolean atualizarCamposMarca(String marca_nome, int marca_id) 
-            throws AppException {
-        boolean result = false;
-        
-        try {
-            MarcaDAO marcaDao = new MarcaDAO();
-            Marca marca = new Marca();
-            marca.setMarcaNome(marca_nome);
-            marca.setMarcaId(marca_id);
-            marcaDao.update(marca);
-            
-            result = true;
-        } catch (Exception ex) {
-            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return result;
-    }
-    
-    @Override
-    public boolean atualizarCamposSubclass(String subclass_nome, int subclass_id) 
-            throws AppException {
-        boolean result = false;
-        
-        try {
-            SubclassificacaoDAO subclassDao = new SubclassificacaoDAO();
-            Subclassificacao subclass = new Subclassificacao();
-            subclass.setSubclassNome(subclass_nome);
-            subclass.setSubclassId(subclass_id);
-            subclassDao.update(subclass);
-            
-            result = true;
-        } catch (Exception ex) {
-            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return result;
-    }
-    
-    @Override
-    public boolean removerCamposUF(int uf_id) throws AppException {
+    public boolean removerCamposUF(int ufId) throws AppException {
         boolean result = false;
         
         try {
             UFDAO ufDao = new UFDAO();
             UF uf = new UF();
-            uf.setUfId(uf_id);
+            uf.setUfId(ufId);
             ufDao.delete(uf);
             
             result = true;
@@ -257,14 +79,29 @@ public class SessaoBean implements SessaoBeanRemote, SessaoBeanLocal {
     }
     
     @Override
-    public boolean removerCamposMarca(int marca_id) throws AppException {
+    public List<UFDTO> loadTabelaUF() throws AppException {
+        List<UFDTO> list = new ArrayList<>();
+        
+        try {
+            UFDAO ufDao = new UFDAO();
+            list = ufDao.findAll();
+        } catch (Exception ex) {
+            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
+            throw new AppException("Houve um erro ao processar a requisição! Contate o suporte!");
+        }
+        
+        return list;
+    }
+    
+    @Override
+    public boolean salvarCamposCategoria(String categoria) throws AppException {
         boolean result = false;
         
         try {
-            MarcaDAO marcaDao = new MarcaDAO();
-            Marca marca = new Marca();
-            marca.setMarcaId(marca_id);
-            marcaDao.delete(marca);
+            CategoriaDAO catDao = new CategoriaDAO();
+            Categoria cat = new Categoria();
+            cat.setCategoria(categoria);
+            catDao.save(cat);
             
             result = true;
         } catch (Exception ex) {
@@ -275,14 +112,16 @@ public class SessaoBean implements SessaoBeanRemote, SessaoBeanLocal {
     }
     
     @Override
-    public boolean removerCamposSubclass(int subclass_id) throws AppException {
+    public boolean atualizarCamposCategoria(String categoria, int categoriaId) 
+            throws AppException {
         boolean result = false;
         
         try {
-            SubclassificacaoDAO subclassDao = new SubclassificacaoDAO();
-            Subclassificacao subclass = new Subclassificacao();
-            subclass.setSubclassId(subclass_id);
-            subclassDao.delete(subclass);
+            CategoriaDAO catDao = new CategoriaDAO();
+            Categoria cat = new Categoria();
+            cat.setCategoria(categoria);
+            cat.setCategoriaId(categoriaId);
+            catDao.update(cat);
             
             result = true;
         } catch (Exception ex) {
@@ -290,5 +129,188 @@ public class SessaoBean implements SessaoBeanRemote, SessaoBeanLocal {
         }
         
         return result;
+    }
+    
+    @Override
+    public boolean removerCamposCategoria(int categoriaId) throws AppException {
+        boolean result = false;
+        
+        try {
+            CategoriaDAO catDao = new CategoriaDAO();
+            Categoria cat = new Categoria();
+            cat.setCategoriaId(categoriaId);
+            catDao.delete(cat);
+            
+            result = true;
+        } catch (Exception ex) {
+            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
+    }
+    
+    @Override
+    public List<CategoriaDTO> loadTabelaCategoria() throws AppException {
+        List<CategoriaDTO> list = new ArrayList<>();
+        
+        try {
+            CategoriaDAO catDao = new CategoriaDAO();
+            list = catDao.findAll();
+        } catch (Exception ex) {
+            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
+            throw new AppException("Houve um erro ao processar a requisição! Contate o suporte!");
+        }
+        
+        return list;
+    }
+    
+    @Override
+    public boolean salvarCamposProduto(ProdutoDTO produtoDto) 
+            throws AppException {
+        boolean result = false;
+        
+        try {
+            ProdutoDAO produtoDao = new ProdutoDAO();
+            Produto produto = new Produto();
+            
+            Categoria cat = new Categoria();
+            cat.setCategoriaId(produtoDto.getCategoria().getCategoriaId());
+            produto.setCategoria(cat);
+            
+            produto.setProduto(produtoDto.getProduto());
+            produto.setValor(produtoDto.getValor());
+            produto.setFoto(produtoDto.getFoto());
+            produto.setDesconto(produtoDto.getDesconto());
+            produto.setEstoque(produtoDto.getEstoque());
+            produto.setDescricao(produtoDto.getDescricao());
+            
+            produtoDao.save(produto);
+            
+            result = true;
+        } catch (Exception ex) {
+            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
+    }
+    
+    @Override
+    public boolean atualizarCamposProduto(ProdutoDTO produtoDto) 
+            throws AppException {
+        boolean result = false;
+        
+        try {
+            ProdutoDAO produtoDao = new ProdutoDAO();
+            Produto produto = new Produto();
+            produto.setProdutoId(produtoDto.getProdutoId());
+            
+            Categoria cat = new Categoria();
+            cat.setCategoriaId(produtoDto.getCategoria().getCategoriaId());
+            produto.setCategoria(cat);
+            
+            produto.setProduto(produtoDto.getProduto());
+            produto.setValor(produtoDto.getValor());
+            produto.setFoto(produtoDto.getFoto());
+            produto.setDesconto(produtoDto.getDesconto());
+            produto.setEstoque(produtoDto.getEstoque());
+            produto.setDescricao(produtoDto.getDescricao());
+            
+            produtoDao.update(produto);
+            
+            result = true;
+        } catch (Exception ex) {
+            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
+    }
+    
+    @Override
+    public boolean removerCamposProduto(int produtoId) throws AppException {
+        boolean result = false;
+        
+        try {
+            ProdutoDAO produtoDao = new ProdutoDAO();
+            Produto produto = new Produto();
+            produto.setProdutoId(produtoId);
+            produtoDao.delete(produto);
+            
+            result = true;
+        } catch (Exception ex) {
+            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
+    }
+    
+    @Override
+    public List<ProdutoDTO> loadTabelaProduto() throws AppException {
+        List<ProdutoDTO> list = new ArrayList<>();
+        
+        try {
+            ProdutoDAO produtoDao = new ProdutoDAO();
+            list = produtoDao.findAll();
+        } catch (Exception ex) {
+            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
+            throw new AppException("Houve um erro ao processar a requisição! Contate o suporte!");
+        }
+        
+        return list;
+    }
+    
+    @Override
+    public ProdutoDTO loadProdutoById(int produtoId) {
+        ProdutoDTO produtoDto = new ProdutoDTO();
+        
+        try {
+            ProdutoDAO produtoDao = new ProdutoDAO();
+            produtoDto = produtoDao.findById(produtoId);
+        } catch (Exception ex) {
+            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return produtoDto;
+    }
+    
+    @Override
+    public List<ProdutoDTO> loadProdutoByCateg(String categoria) {
+        List<ProdutoDTO> list = new ArrayList<>();
+        
+        try {
+            ProdutoDAO produtoDao = new ProdutoDAO();
+            list = produtoDao.findByCategoria(categoria);
+        } catch (Exception ex) {
+            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return list;
+    }
+    
+    @Override
+    public List<ProdutoDTO> loadProdutoByDesconto() {
+        List<ProdutoDTO> list = new ArrayList<>();
+        
+        try {
+            ProdutoDAO produtoDao = new ProdutoDAO();
+            list = produtoDao.findByDesconto();
+        } catch (Exception ex) {
+            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return list;
+    }
+    
+    @Override
+    public List<ProdutoDTO> loadProdutoByDescricao(String pesquisa) {
+        List<ProdutoDTO> list = new ArrayList<>();
+        
+        try {
+            ProdutoDAO produtoDao = new ProdutoDAO();
+            list = produtoDao.findByDescricao(pesquisa);
+        } catch (Exception ex) {
+            Logger.getLogger(SessaoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return list;
     }
 }

@@ -12,7 +12,7 @@ function init() {
 }
 
 function loadTabela() {
-    var URL = 'http://localhost:8080/ecommerce-web/uf';
+    var URL = 'http://localhost:8080/ecommerce-web/categoria';
     var http = new XMLHttpRequest();
     
     http.onreadystatechange = function () {
@@ -45,7 +45,7 @@ function novoRegistro() {
     }
     
     document.querySelector('form').reset();
-    document.querySelector('#uf').focus();
+    document.querySelector('#categoria').focus();
     btnRemover.setAttribute('disabled', 'disabled');
 }
 
@@ -55,26 +55,22 @@ function salvarCampos(e) {
     
     if (document.querySelector('.selected')) {
         formData['action'] = 'update';
-        formData['uf_id'] = Number(oForm.uf_id.value);
+        formData['categoria_id'] = Number(oForm.categoria_id.value);
     } else {
         formData['action'] = 'save';
     }
     
-    formData['uf'] = oForm.uf.value;
-    formData['nome_estado'] = oForm.nome_estado.value;
+    formData['categoria'] = oForm.categoria.value;
     
     var msg = [];
-    if (formData.uf.length !== 2 || /^[A-Z]*$/.test(formData.uf) === false) {
-        msg.push('- O campo UF requer duas letras maiúsculas!');
-    }
-    if (/[A-Z]|[0-9]/i.test(formData.nome_estado) === false) {
-        msg.push('- O campo Nome do Estado é obrigatório!');
+    if (/[A-Z]|[0-9]/i.test(formData.marca) === false) {
+        msg.push('- O campo Categoria é obrigatório!');
     }
     
     if (msg.length > 0) {
         alert('Preencha os campos corretamente:\n' + msg.join('\n'));
     } else {
-        var URL = 'http://localhost:8080/ecommerce-web/uf';
+        var URL = 'http://localhost:8080/ecommerce-web/categoria';
         var http = new XMLHttpRequest();
         
         http.onreadystatechange = function () {
@@ -98,7 +94,7 @@ function salvarCampos(e) {
             }
         };
         
-        http.open('POST', URL);
+        http.open("POST", URL);
         http.setRequestHeader('Content-Type', 'application/json');
         http.send(JSON.stringify(formData));
     }
@@ -109,9 +105,9 @@ function removerCampos(e) {
         var oForm = e.target.form;
         var formData = {};
         formData['action'] = 'delete';
-        formData['uf_id'] = Number(oForm.uf_id.value);
+        formData['categoria_id'] = Number(oForm.categoria_id.value);
         
-        var URL = 'http://localhost:8080/ecommerce-web/uf';
+        var URL = 'http://localhost:8080/ecommerce-web/categoria';
         var http = new XMLHttpRequest();
         
         http.onreadystatechange = function () {

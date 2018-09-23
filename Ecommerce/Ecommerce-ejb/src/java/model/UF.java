@@ -2,7 +2,7 @@ package model;
 
 public class UF {
     private int ufId;
-    private String ufNome;
+    private String uf;
     private String nomeEstado;
 
     public int getUfId() {
@@ -13,12 +13,12 @@ public class UF {
         this.ufId = ufId;
     }
 
-    public String getUfNome() {
-        return ufNome;
+    public String getUf() {
+        return uf;
     }
 
-    public void setUfNome(String ufNome) {
-        this.ufNome = ufNome;
+    public void setUf(String uf) {
+        this.uf = uf;
     }
 
     public String getNomeEstado() {

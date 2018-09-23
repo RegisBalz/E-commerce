@@ -1,10 +1,11 @@
-package model;
+package dto;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Pedido {
+public class PedidoDTO implements Serializable {
     private int pedidoId;
-    private UF uf;
+    private UFDTO uf;
     private String cliente;
     private String cpfCnpj;
     private String cep;
@@ -16,7 +17,7 @@ public class Pedido {
     private String fone;
     private String email;
     private int parcelaQtde;
-    private List<ItensPedido> itensPedido;
+    private List<ItensPedidoDTO> itensPedido;
 
     public int getPedidoId() {
         return pedidoId;
@@ -26,11 +27,11 @@ public class Pedido {
         this.pedidoId = pedidoId;
     }
 
-    public UF getUf() {
+    public UFDTO getUf() {
         return uf;
     }
 
-    public void setUf(UF uf) {
+    public void setUf(UFDTO uf) {
         this.uf = uf;
     }
 
@@ -122,11 +123,11 @@ public class Pedido {
         this.parcelaQtde = parcelaQtde;
     }
 
-    public List<ItensPedido> getItensPedido() {
+    public List<ItensPedidoDTO> getItensPedido() {
         return itensPedido;
     }
 
-    public void setItensPedido(List<ItensPedido> itensPedido) {
+    public void setItensPedido(List<ItensPedidoDTO> itensPedido) {
         this.itensPedido = itensPedido;
     }
 }

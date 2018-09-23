@@ -1,9 +1,6 @@
 html {
     font: 16px arial;
 }
-.container {
-    background-color: white;
-}
 form {
     margin: 2em;
     font-weight: bold;
@@ -26,17 +23,26 @@ form label {
     font-size: .8em;
 }
 form input[type="text"],
-form input[type="number"] {
-    line-height: 2em;
-    outline: none;
-    padding-left: .1em;
+form input[type="number"],
+form textarea,
+form select {
     border: .1em solid black;
     border-radius: .3em;
 }
+form input[type="text"],
+form input[type="number"],
+form textarea {
+    padding-left: .2em;
+}
+form input[type="text"],
+form input[type="number"] {
+    line-height: 2em;
+}
+form textarea {
+    resize: none;
+}
 form select {
-    height: 2.4em;
-    border: .1em solid black;
-    border-radius: .3em;
+    height: 2.3em;
 }
 form input[type="button"] {
     width: 8em;

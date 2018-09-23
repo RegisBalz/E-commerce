@@ -1,0 +1,60 @@
+.div1,.div2,.div3,.div4  {
+    display: none;
+}
+.content {
+    min-height: 50em;
+}
+.content form {
+    display: inline-block;
+    float: left;
+    width: 60%;
+    margin: 1em;
+}
+fieldset > div {
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+    margin: 1em 0;
+}
+div > input, select, textarea {
+    width: 80%;
+    resize: none;
+}
+fieldset > input {
+    width: 15em;
+    height: 3em;
+    box-shadow: 0.1em 0.3em 0.5em rgba(0,0,0,.3);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #e00;
+    color: #fff;
+}
+.product-box {
+    float: right;
+    width: 25em;
+    height: 30em;
+    font-size: 1.15em;
+}
+.product-price {
+    text-align:center;
+}
+.product-valor {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1em;
+    margin: .3em 0;
+}
+.product-img {
+    width: 20em;
+    margin: 1em;
+    overflow: hidden;
+}
+.product-img img {
+    width: 100%;
+}
+.product-parcela {
+    text-align: center;
+    margin: 0;
+}

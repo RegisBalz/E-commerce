@@ -1,19 +1,14 @@
 package model;
 
-import java.sql.Blob;
-
 public class Produto {
     private int produtoId;
-    private Classificacao classificacao;
-    private Marca marca;
-    private String produtoNome;
-    private String descricao;
-    private double preco;
-    private int promocao;
-    private Blob foto;
-    private String tamanho;
-    private String peso;
+    private Categoria categoria;
+    private String produto;
+    private double valor;
+    private String foto;
+    private int desconto;
     private int estoque;
+    private String descricao;
 
     public int getProdutoId() {
         return produtoId;
@@ -23,76 +18,44 @@ public class Produto {
         this.produtoId = produtoId;
     }
 
-    public Classificacao getClassificacao() {
-        return classificacao;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setClassificacao(Classificacao classificacao) {
-        this.classificacao = classificacao;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
-    public Marca getMarca() {
-        return marca;
+    public String getProduto() {
+        return produto;
     }
 
-    public void setMarca(Marca marca) {
-        this.marca = marca;
+    public void setProduto(String produto) {
+        this.produto = produto;
     }
 
-    public String getProdutoNome() {
-        return produtoNome;
+    public double getValor() {
+        return valor;
     }
 
-    public void setProdutoNome(String produtoNome) {
-        this.produtoNome = produtoNome;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
-    public int getPromocao() {
-        return promocao;
-    }
-
-    public void setPromocao(int promocao) {
-        this.promocao = promocao;
-    }
-
-    public Blob getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(Blob foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 
-    public String getTamanho() {
-        return tamanho;
+    public int getDesconto() {
+        return desconto;
     }
 
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
-    }
-
-    public String getPeso() {
-        return peso;
-    }
-
-    public void setPeso(String peso) {
-        this.peso = peso;
+    public void setDesconto(int desconto) {
+        this.desconto = desconto;
     }
 
     public int getEstoque() {
@@ -101,5 +64,13 @@ public class Produto {
 
     public void setEstoque(int estoque) {
         this.estoque = estoque;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }
